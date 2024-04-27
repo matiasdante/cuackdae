@@ -68,3 +68,4 @@ async def on_ready():
 
 # Conectar el bot con el token proporcionado
 client.run(TOKEN)
+
