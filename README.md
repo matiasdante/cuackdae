@@ -2,6 +2,8 @@
 
 **Bot de rolls similar a Muade, pero de Patos.**
 
+![image](https://github.com/matiasdante/cuackdae/assets/70301149/f7cc6f92-7b70-4e78-b19f-46180340932f)
+
 ## Indice
 
 * [Introducción](#Introduccion)
@@ -53,7 +55,5 @@ nohup python3 -m cuack1.1.py &
 * Ingresamos a al canal de discord de cuackdae
 * Escribimos el comando /pato
 * Disfrutar
-
-![image](https://github.com/matiasdante/cuackdae/assets/70301149/ff31b0aa-d00c-4a74-8aee-fe8a9f49360f)
 
 
