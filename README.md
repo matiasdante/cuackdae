@@ -37,11 +37,7 @@ git clone https://github.com/matiasdante/cuackdae.git
 2. Instala dependencias:
 
 ```bash
-pip3 install typing
-pip3 install os
-pip3 install dotenv
-pip3 install discord.py
-pip3 install requests
+pip3 install -r requirementes.txt
 ```
 
 3. Lanza el comando:
