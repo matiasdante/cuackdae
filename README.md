@@ -39,8 +39,12 @@ git clone https://github.com/matiasdante/cuackdae.git
 ```bash
 pip3 install -r requirementes.txt
 ```
+3. Cambiar el nombre del example.env
+```bash
+example.env --> .env
+```
 
-3. Lanza el comando:
+4. Lanza el comando:
 
 ```bash
 nohup python3 -m cuack1.1.py &
