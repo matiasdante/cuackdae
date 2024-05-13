@@ -47,7 +47,7 @@ example.env --> .env
 4. Lanza el comando:
 
 ```bash
-nohup python3 -m cuack1.1.py &
+nohup python3 -m cuackdae.py &
 ```
 
 ## Uso
