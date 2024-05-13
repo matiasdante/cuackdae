@@ -11,7 +11,7 @@ load_dotenv()
 TOKEN: Final[str] = os.getenv('DISCORD_TOKEN')
 
 # URL del archivo .txt en el repositorio de GitHub
-github_file_url = 'https://raw.githubusercontent.com/matiasdante/cuackdae/main/patourl.txt?token=GHSAT0AAAAAACQVMDGBXF5VL5MZ32CXGUFMZQTNZ5Q'
+github_file_url = 'https://raw.githubusercontent.com/matiasdante/cuackdae/main/patourl.txt'
 
 # Descargar el archivo .txt desde el repositorio de GitHub
 def download_image_list():
@@ -30,6 +30,19 @@ def download_image(url):
     else:
         print(f'Error al descargar la imagen: {response.status_code}')
         return None
+
+# Obtener el título de la imagen desde la URL
+def get_image_title(url):
+    # Obtener la parte de la URL que contiene el nombre de la imagen
+    image_name = url.split('/')[-1]
+    
+    # Eliminar la extensión (.jpg, .png, etc.)
+    image_title = image_name.split('.')[0]
+    
+    # Reemplazar guiones medios con espacios
+    image_title = image_title.replace('-', ' ')
+    
+    return image_title
 
 # Iniciar el bot
 intents = Intents.default()
@@ -52,8 +65,11 @@ async def cr(ctx):
     # Descargar la imagen desde la URL
     image_data = download_image(random_image_url)
     if image_data:
-        # Crear un embed con la imagen adjunta
-        embed = Embed(description=random_image_url, color=0xFFFF00)
+        # Obtener el título de la imagen desde la URL
+        image_title = get_image_title(random_image_url)
+        
+        # Crear un embed con el título y la imagen adjunta
+        embed = Embed(title=image_title, color=0xFFFF00)
         embed.set_image(url=random_image_url)
         
         # Enviar el embed con la imagen al chat
