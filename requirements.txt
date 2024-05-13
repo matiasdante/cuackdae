@@ -1,0 +1,5 @@
+typing
+os
+dotenv
+discord.py
+requests
