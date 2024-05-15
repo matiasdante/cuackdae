@@ -4,7 +4,8 @@ import requests
 from typing import Final
 from dotenv import load_dotenv
 from discord.ext import commands
-from discord import Intents, Embed
+from discord import Intents, Embed, Activity, ActivityType
+import discord #Para que funcione la "actividad actual"
 
 # Cargar el token de discord
 load_dotenv()
@@ -54,7 +55,7 @@ image_files = download_image_list()
 
 # Comando para mostrar una imagen aleatoria
 @client.command()
-async def cr(ctx):
+async def pato(ctx):
     if not image_files:
         await ctx.send('Error al cargar la lista de imágenes.')
         return
@@ -81,7 +82,8 @@ async def cr(ctx):
 @client.event
 async def on_ready():
     print(f'{client.user.name} está listo!')
-
+    # Setea la actividad actual una vez que el bot está listo
+    await client.change_presence(activity=Activity(type=ActivityType.playing, name="/pato | OnlyDucks 🦆"))
 # Conectar el bot con el token proporcionado
 client.run(TOKEN)
 
