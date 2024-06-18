@@ -57,3 +57,40 @@ nohup python3 -m cuackdae.py &
 * Disfrutar
 
 
+## Adicionar base de datos
+
+Utilizaremos MYSQL 
+
+CREATE TABLE IF NOT EXISTS patos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    url VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS user_patos (
+    user_id BIGINT NOT NULL,
+    pato_id INT NOT NULL,
+    claimed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (pato_id) REFERENCES patos(id)
+);
+
+CREATE TABLE IF NOT EXISTS command_usage (
+    user_id BIGINT NOT NULL,
+    last_used TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+Agregaremos al código lo siguiente
+
+import mysql.connector
+
+# Configuración de la base de datos
+db_config = {
+    'user': 'tu_usuario',
+    'password': 'tu_contraseña',
+    'host': 'localhost',
+    'database': 'tu_basedatos'
+}
+
+# Crear la conexión
+db = mysql.connector.connect(**db_config)
+cursor = db.cursor()
