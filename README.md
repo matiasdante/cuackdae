@@ -60,7 +60,17 @@ nohup python3 -m cuackdae.py &
 ## Adicionar base de datos
 
 Utilizaremos MYSQL 
+
 ```bash
+sudo apt install mysql-server
+```
+
+## Crear Base de Datos
+
+```bash
+
+CREATE DATABASE PATOS;
+
 
 CREATE TABLE IF NOT EXISTS patos (
     id INT AUTO_INCREMENT PRIMARY KEY,
