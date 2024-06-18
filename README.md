@@ -84,13 +84,18 @@ Agregaremos al código lo siguiente
 import mysql.connector
 
 # Configuración de la base de datos
+```bash
+
 db_config = {
     'user': 'tu_usuario',
     'password': 'tu_contraseña',
     'host': 'localhost',
     'database': 'tu_basedatos'
 }
+```
 
 # Crear la conexión
+```bash
 db = mysql.connector.connect(**db_config)
 cursor = db.cursor()
+```
