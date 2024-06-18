@@ -60,6 +60,7 @@ nohup python3 -m cuackdae.py &
 ## Adicionar base de datos
 
 Utilizaremos MYSQL 
+```bash
 
 CREATE TABLE IF NOT EXISTS patos (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -78,13 +79,14 @@ CREATE TABLE IF NOT EXISTS command_usage (
     user_id BIGINT NOT NULL,
     last_used TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+```
 
 Agregaremos al código lo siguiente
+```bash
 
 import mysql.connector
 
 # Configuración de la base de datos
-```bash
 
 db_config = {
     'user': 'tu_usuario',
@@ -92,10 +94,10 @@ db_config = {
     'host': 'localhost',
     'database': 'tu_basedatos'
 }
-```
+
 
 # Crear la conexión
-```bash
+
 db = mysql.connector.connect(**db_config)
 cursor = db.cursor()
 ```
