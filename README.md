@@ -50,17 +50,28 @@ example.env --> .env
 nohup python3 -m cuackdae.py &
 ```
 
-## Uso
-
-* Ingresamos a al canal de discord de cuackdae
-* Escribimos el comando /pato
-* Disfrutar
-
-
 ## Adicionar base de datos
 
-Utilizaremos MYSQL 
+
+
+Utilizaremos MYSQL
+
 ```bash
+sudo apt install mysql-server
+```
+
+## Crearemos la base de datos
+
+```bash
+#Crear base de datos
+
+CREATE DATABASE PATOS;
+
+#Seleccionamos la base de datos creada
+
+USE PATOS;
+
+#Procederemos a crear las tablas
 
 CREATE TABLE IF NOT EXISTS patos (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -79,25 +90,17 @@ CREATE TABLE IF NOT EXISTS command_usage (
     user_id BIGINT NOT NULL,
     last_used TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+# Crearemos un usuario para la base
+
+CREATE USER 'NOMBREDEUSUARIO'@'localhost' IDENTIFIED BY 'TUPASSWORD';
+
+# Le otorgamos los permisos
+
+GRANT ALL PRIVILEGES ON PATOS.* to NOMBREDEUSUARIO@localhost;
 ```
+## Uso
 
-Agregaremos al código lo siguiente
-```bash
-
-import mysql.connector
-
-# Configuración de la base de datos
-
-db_config = {
-    'user': 'tu_usuario',
-    'password': 'tu_contraseña',
-    'host': 'localhost',
-    'database': 'tu_basedatos'
-}
-
-
-# Crear la conexión
-
-db = mysql.connector.connect(**db_config)
-cursor = db.cursor()
-```
+* Ingresamos a al canal de discord de cuackdae
+* Escribimos el comando /pato
+* Disfrutar
